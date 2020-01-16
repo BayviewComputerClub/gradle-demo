@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+defaultTasks 'build', 'shadowJar' // set the default task when running gradlew to build
+
+group 'club.bayview.demo' // CHANGE THIS TO YOUR PACKAGE NAME!!!
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8 // compatible with Java 1.8
+
+// create a jar file
+jar {
+    manifest {
+        attributes 'Main-Class': 'club.bayview.demo.Main' // which class to run
+    }
+}
+
+// create a jar file with dependencies
+shadowJar {
+    baseName = 'demo' // change to what you want
+    classifier = '' // change to what you want
+    version = '' // change to what you want
+}
+
+// where to get dependencies from
+repositories {
+    mavenCentral()
+}
+
+// add a dependency here
+// https://mvnrepository.com
+dependencies {
+
+}
